@@ -6,7 +6,7 @@
 docker-compose up -d --build
 ```
 
-3. Jika aplikasi belum berjalan, dapat dijalankan dengan command:
+3. Jika aplikasi belum berjalan secara otomatis, dapat dijalankan dengan command:
 
 ```bash
 docker-compose up
