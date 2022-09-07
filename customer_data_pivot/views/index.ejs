@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
+    <title>Data Customer</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+    <h1 class="text-center">Data Customer</h1>
+    <table class="table table-bordered" style="border: 1px solid black;">
+      <thead>
+        <tr style="background-color: gray;">
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const item of data.data) { %>
+        <tr>
+          <td style="border: 1px solid black; width: 10%; text-align: center;"><%= item.id %> </td>
+          <td style="border: 1px solid black; width: 25%;"><%= item.firstname+" "+item.lastname %> </td>
+          <td style="border: 1px solid black; width: 20%; text-align: center;"><%= item.email %> </td>
+          <td style="border: 1px solid black; width: 20%; text-align: center;"><%= item.item %> </td>
+          <td style="border: 1px solid black; width: 10%; text-align: center;"><%= item.quantity %> </td>
+          <td style="border: 1px solid black; width: 15%; text-align: center;"><%= item.total_price %> </td>
+        </tr>
+        <% }; %>
+      </tbody>
+    </table>
+    <div style="margin: 5px 5px; padding: 3px 3px;">Page : <%= data.current_page %>/<%= data.total_page %>  </div>
+    <div class="" style="margin: 5px 5px; padding: 3px 3px; align-self: right; display: flex;">
+      <button>
+        <a href="/data/customer/pivot" style="text-decoration: none;">PIVOT</a>
+      </button>
+    </div>
+    <% if(data.current_page > 1){ %>
+      <div class="" style="margin: 3px 3px; padding: 3px 3px; align-self: right; display: flex;">
+        <button>
+          <a href="/data/customer?pageNumber=<%= data.current_page - 1 %> " style="text-decoration: none;">PREVIOUS PAGE</a>
+        </button>
+      </div>
+    <% } %>
+    <% if(data.current_page < data.total_page ){ %>
+      <% let page= parseInt(data.current_page)+1 %>   
+    <div class="" style="margin: 3px 3px; padding: 3px 3px; align-self: right; display: flex;">
+      <button>
+        <a href="/data/customer?pageNumber=<%= page %>" style="text-decoration: none;">NEXT PAGE</a>
+      </button>
+    </div>
+    <% } %> 
+    </div>
+    <script src="../public/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+<!-- <script>
+  function change(pilih){
+    const pilihan=pilih.id
+    const tabel = document.getElementsByClassName(pilihan)
+    tabel.classList.toggle('invisible')
+    let opposite
+    if(pilihan == "default"){
+        opposite="pivot"
+    }else if(pilihan == "pivot"){
+        opposite="default"
+    }
+    const show = document.getElementsByClassName(opposite)
+    show.classList.toggle('visible')
+    
+    return opposite
+}
+</script> -->
+
+<style>
+  .invisible {
+    visibility:hidden;
+  }
+  .visible {
+    visibility: visible;
+  }
+</style>
