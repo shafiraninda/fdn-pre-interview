@@ -6,12 +6,16 @@
 docker-compose up -d --build
 ```
 
-4. setelah command berhasil dijalankan, aplikasi akan secara otomatis berjalan.
+3. Jika aplikasi belum berjalan, dapat dijalankan dengan command:
+
+```bash
+docker-compose up
+```
 
 5. Untuk melakukan test pada aplikasi, dapat digunakan command berikut: 
 
 ```bash
-docker exec -it tweets npm test
+docker exec -it tweets npm run test:e2e
 ```
 
 6. Aplikasi dapat diakses melalui endpoint : http://localhost:3000/timeline/tweets/amandaputrimau3

@@ -12,11 +12,15 @@ docker volume create pgdata
 docker-compose up -d --build
 ```
 
-setelah command berhasil dijalankan, aplikasi akan secara otomatis berjalan.
+4. Jika aplikasi belum berjalan, dapat dijalankan dengan command:
 
-3. Hit/jalankan endpoint : http://localhost:3000/data untuk populate data dummy ke database
+```bash
+docker-compose up
+```
 
-4. Untuk melakukan test pada aplikasi, dapat digunakan command berikut: 
+5. Setelah aplikasi berjalan, hit/jalankan endpoint : http://localhost:3000/data untuk populate data dummy ke database
+
+6. Untuk melakukan test pada aplikasi, dapat digunakan command berikut: 
 
 ```bash
 docker exec -it main npm test
