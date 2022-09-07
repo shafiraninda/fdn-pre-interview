@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Customer } from "src/models/customer.entity";
+import { Customer } from "../models/customer.entity";
 import { createQueryBuilder, Repository } from "typeorm";
 import fs = require('fs');
 import path = require("path");
@@ -9,7 +9,7 @@ import path = require("path");
 export class CustomerService {
     constructor(
         @InjectRepository(Customer)
-        private readonly repo:Repository<Customer>
+        protected readonly repo:Repository<Customer>
     ){}
 
     public async insertDataDummy(){

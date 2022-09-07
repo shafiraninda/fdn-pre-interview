@@ -12,20 +12,21 @@ export class CustomerController {
 
     @Get('/customer')
     @Render('index')
-    async root(@Query('pageNumber') pageNumber: number){
+    public async root(@Query('pageNumber') pageNumber?: number){
+        const data = await this.serv.getListCustomer(pageNumber)
         const result = {
-            data: await this.serv.getListCustomer(pageNumber),
-            
+            data: data,
         }
         return result
     }
 
     @Get('/customer/pivot')
     @Render('pivot')
-    async pivot(@Query('pageNumber') pageNumber: number){
+    public async pivot(@Query('pageNumber') pageNumber?: number){
         const item = await this.serv.getItems()
+        const data = await this.serv.getListCustomer(pageNumber)
         const result = {
-            data: await this.serv.getListCustomer(pageNumber),
+            data: data,
             product: item
         }
         return result

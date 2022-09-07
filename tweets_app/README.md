@@ -6,15 +6,15 @@
 docker-compose up -d --build
 ```
 
-setelah command berhasil dijalankan, aplikasi akan secara otomatis berjalan.
+4. setelah command berhasil dijalankan, aplikasi akan secara otomatis berjalan.
 
-Untuk melakukan test pada aplikasi, dapat digunakan command berikut: 
+5. Untuk melakukan test pada aplikasi, dapat digunakan command berikut: 
 
 ```bash
 docker exec -it tweets npm test
 ```
 
-Aplikasi dapat diakses melalui endpoint : http://localhost:3000/timeline/tweets/amandaputrimau3
+6. Aplikasi dapat diakses melalui endpoint : http://localhost:3000/timeline/tweets/amandaputrimau3
 
 Setting pagination default adalah 10 item per page, namun jika ingin mengubah setting pagination bisa ditambahkan sebagai query pada endpoint diatas dengan max_results adalah banyak item yg akan ditampilkan dan pagination_token berisi next_token atau previous_token yang digunakan untuk berpindah halaman ke sebelumnya atau selanjutnya.
 Gunakan next_token yang telah didapatkan untuk berpindah ke halaman selanjutnya, sedangkan previous_token untuk kembali ke halaman sebelumnya.
